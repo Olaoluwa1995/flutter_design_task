@@ -20,10 +20,10 @@ class _TabViewsState extends State<TabViews> {
 
   final List<Widget> _children = [
     const HomeScreen(),
-    Container(),
-    Container(),
-    Container(),
-    Container(),
+    const _Screen(screenTitle: 'Search Screen'),
+    const _Screen(screenTitle: 'Trending Screen'),
+    const _Screen(screenTitle: 'Payment Screen'),
+    const _Screen(screenTitle: 'Profile Screen'),
   ];
 
   @override
@@ -48,6 +48,28 @@ class _TabViewsState extends State<TabViews> {
             currentIndex: _currentIndex,
             onTabTapped: onTabTapped,
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class _Screen extends StatelessWidget {
+  const _Screen({
+    Key? key,
+    required this.screenTitle,
+  }) : super(key: key);
+
+  final String screenTitle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text(
+        screenTitle,
+        style: const TextStyle(
+          fontSize: 25,
+          fontWeight: FontWeight.w600,
         ),
       ),
     );
